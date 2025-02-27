@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Fair 2025 - UoM Quantity Surveying</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Authentication Section -->
+    <div id="auth-section">
+        <header>
+            <div class="logo">University of Moratuwa</div>
+            <h1>Quantity Surveying Career Fair 2025</h1>
+            <div class="admin-login-container">
+                <a href="#" id="admin-login-link">Admin Login</a>
+            </div>
+        </header>
+        
+        <div class="container">
+            <!-- Register Form -->
+            <div class="card" id="register-form-container">
+                <h2>Student Registration</h2>
+                <div id="register-alert" class="alert alert-danger hidden"></div>
+                
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="index">Index Number (202601P - 202742U)</label>
+                        <input type="text" id="index" placeholder="e.g. 202601P" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="Your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Your email address" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Create a password" required>
+                    </div>
+                    
+                    <button type="button" id="register-button">Register</button>
+                    <p style="margin-top: 15px;">Already registered? <a href="#" id="show-login">Login here</a></p>
+                </form>
+            </div>
+            
+            <!-- Login Form -->
+            <div class="card hidden" id="login-form-container">
+                <h2>Student Login</h2>
+                <div id="login-alert" class="alert alert-danger hidden"></div>
+                
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-index">Index Number</label>
+                        <input type="text" id="login-index" placeholder="e.g. 202601P" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" placeholder="Your password" required>
+                    </div>
+                    
+                    <button type="button" id="login-button">Login</button>
+                    <p style="margin-top: 15px;">Need an account? <a href="#" id="show-register">Register here</a></p>
+                </form>
+            </div>
+            
+            <!-- Admin Login Form -->
+            <div class="card hidden" id="admin-form-container">
+                <h2>Admin Login</h2>
+                <div id="admin-alert" class="alert alert-danger hidden"></div>
+                
+                <form id="admin-form">
+                    <div class="form-group">
+                        <label for="admin-username">Username</label>
+                        <input type="text" id="admin-username" placeholder="Admin username" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="admin-password">Password</label>
+                        <input type="password" id="admin-password" placeholder="Admin password" required>
+                    </div>
+                    
+                    <button type="button" id="admin-login-button">Login</button>
+                    <p style="margin-top: 15px;"><a href="#" id="back-to-student">Back to Student Login</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Application Section -->
+    <div id="app-section" class="hidden">
+        <header>
+            <div class="logo">University of Moratuwa</div>
+            <h1>Quantity Surveying Career Fair 2025</h1>
+        </header>
+        
+        <div class="navbar">
+            <div>
+                <h3 id="page-title">Company Interviews</h3>
+            </div>
+            <div class="user-info">
+                <span id="user-name"></span>
+                <span id="user-index"></span>
+                <span id="requests-counter" class="requests-counter">Remaining Requests: <span id="requests-count">5</span></span>
+                <button id="logout-button">Logout</button>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div id="app-alert" class="alert alert-success hidden"></div>
+            
+            <!-- Admin Panel -->
+            <div id="admin-panel" class="hidden">
+                <h2>Admin Control Panel</h2>
+                
+                <!-- Admin Tab Navigation -->
+                <div class="admin-tabs">
+                    <button class="tab-button active" id="tab-companies">Manage Companies</button>
+                    <button class="tab-button" id="tab-students">Registered Students</button>
+                    <button class="tab-button" id="tab-requests">Interview Requests</button>
+                </div>
+                
+                <!-- Companies Tab -->
+                <div class="tab-content" id="companies-tab">
+                    <div class="card">
+                        <h3>Add/Update Company</h3>
+                        <form id="company-form">
+                            <input type="hidden" id="edit-company-id" value="">
+                            
+                            <div class="form-group">
+                                <label for="company-name">Company Name</label>
+                                <input type="text" id="company-name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="company-description">Company Description</label>
+                                <textarea id="company-description" placeholder="Enter a brief description of the company"></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="company-slots">Available Slots</label>
+                                <input type="number" id="company-slots" min="1" required>
+                            </div>
+                            
+                            <button type="button" id="add-company-button">Add Company</button>
+                            <button type="button" id="update-company-button" class="hidden">Update Company</button>
+                            <button type="button" id="cancel-edit-button" class="hidden">Cancel</button>
+                        </form>
+                    </div>
+                    
+                    <h3>Manage Companies</h3>
+                    <div id="admin-companies-container">
+                        <!-- Companies for admin management will be loaded here -->
+                    </div>
+                </div>
+                
+                <!-- Students Tab -->
+                <div class="tab-content hidden" id="students-tab">
+                    <div class="card">
+                        <h3>Registered Students</h3>
+                        <div id="registrations-container">
+                            <p>No registrations yet.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Interview Requests Tab -->
+                <div class="tab-content hidden" id="requests-tab">
+                    <div class="card">
+                        <h3>Interview Requests</h3>
+                        <div id="interview-requests-container">
+                            <!-- Requests will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h2>Available Companies</h2>
+            <div id="companies-container">
+                <!-- Companies will be added here -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- View Company Modal -->
+    <div id="company-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-company-name"></h3>
+                <button class="close-button">&times;</button>
+            </div>
+            <div id="modal-company-description"></div>
+            <div id="modal-company-slots"></div>
+            <div id="modal-company-actions" style="margin-top: 20px;"></div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

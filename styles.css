@@ -1,0 +1,417 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #1a3a6e;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 5px solid #f8a01c;
+    position: relative;
+}
+
+.card {
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+button {
+    background-color: #1a3a6e;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+button:hover {
+    background-color: #0e2654;
+}
+
+.alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.company-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: opacity 0.3s ease;
+}
+
+.company-card.no-slots {
+    opacity: 0.6;
+    position: relative;
+}
+
+.company-card.no-slots::after {
+    content: "No slots available";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(220, 53, 69, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.company-description {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-left: 3px solid #1a3a6e;
+    font-style: italic;
+}
+
+.btn-secondary {
+    background-color: #f8a01c;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-edit {
+    background-color: #28a745;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.requests-counter {
+    background-color: #f8a01c;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.admin-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.slots-control {
+    display: flex;
+    align-items: center;
+}
+
+.slots-control button {
+    margin: 0 5px;
+    padding: 5px 10px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Admin login styles */
+.admin-login-container {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+#admin-login-link {
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+#admin-login-link:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.admin-badge {
+    background-color: #dc3545;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+/* Student registration table */
+.registration-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.registration-table th, 
+.registration-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.registration-table th {
+    background-color: #f2f2f2;
+}
+
+.registration-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.registration-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Admin tabs */
+.admin-tabs {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    background-color: #f1f1f1;
+    color: #333;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+    padding: 10px 15px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.tab-button.active {
+    background-color: #1a3a6e;
+    color: white;
+    border-color: #1a3a6e;
+}
+
+/* Interview requests table */
+.requests-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.requests-table th, 
+.requests-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.requests-table th {
+    background-color: #f2f2f2;
+}
+
+.requests-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.requests-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.timestamp {
+    font-size: 0.85em;
+    color: #666;
+}
+
+/* Company request summary */
+.company-request-summary {
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.company-request-header {
+    background-color: #1a3a6e;
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.company-request-header h4 {
+    margin: 0;
+}
+
+.company-request-count {
+    background-color: #f8a01c;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.company-request-body {
+    padding: 15px;
+    background-color: white;
+}
+
+/* Loading indicator */
+.loading {
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    color: #666;
+}
+
+/* No requests message */
+.no-requests {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    color: #666;
+    font-style: italic;
+}
+
+/* Add this to your existing CSS file */
+
+/* Style for companies with no slots */
+.company-card.no-slots {
+    border-color: #ccc;
+    background-color: #f8f8f8;
+}
+
+/* Style for already requested companies */
+.company-card.already-requested {
+    border-color: #4caf50;
+    background-color: rgba(76, 175, 80, 0.1);
+}
+
+/* Style for when student has no requests left */
+.company-card.no-requests-left {
+    opacity: 0.5;
+    cursor: default;
+}
+
+/* Status label styling */
+.status-label {
+    display: inline-block;
+    padding: 3px 8px;
+    margin: 5px 0;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.already-requested .status-label {
+    background-color: #4caf50;
+    color: white;
+}
+
+.no-slots .status-label {
+    background-color: #f44336;
+    color: white;
+}
